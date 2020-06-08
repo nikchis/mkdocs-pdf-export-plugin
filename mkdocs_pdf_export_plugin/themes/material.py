@@ -62,7 +62,7 @@ def modify_html(html: str, href: str) -> str:
     soup = BeautifulSoup(html, 'html.parser')
     a = soup.new_tag('a', href=href, title='PDF Export', download=None)
     a['class'] = 'md-icon md-content__icon'
-    a.string = '\uE2C4'
+    a.string = 'Download PDF'
     soup.article.insert(0, a)
 
     return str(soup)

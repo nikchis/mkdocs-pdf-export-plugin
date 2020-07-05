@@ -2,7 +2,7 @@ from bs4 import BeautifulSoup
 
 
 def get_stylesheet() -> str:
-    return """
+  return """
     h1, h2, h3 {
          string-set: chapter content();
     }
@@ -15,11 +15,6 @@ def get_stylesheet() -> str:
     .md-main {
         display: block;
         height: inherit;
-    }
-    
-    .md-main__inner {
-        height: inherit;
-        padding-top: 0;
     }
     
     .md-typeset .codehilitetable .linenos {
@@ -59,10 +54,10 @@ def get_stylesheet() -> str:
 
 
 def modify_html(html: str, href: str) -> str:
-    soup = BeautifulSoup(html, 'html.parser')
-    a = soup.new_tag('a', href=href, title='PDF Export', download=None)
-    a['class'] = 'md-icon md-content__icon'
-    a.string = '\u2B73 PDF'
-    soup.article.insert(0, a)
+  soup = BeautifulSoup(html, 'html.parser')
+  a = soup.new_tag('a', href=href, title='PDF Export', download=None)
+  a['class'] = 'md-icon md-content__icon'
+  a.string = '\u2B73 PDF'
+  soup.article.insert(0, a)
 
-    return str(soup)
+  return str(soup)
